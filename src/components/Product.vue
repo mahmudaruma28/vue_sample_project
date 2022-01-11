@@ -1,11 +1,16 @@
 <template>
     <div>
         <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-            <img
-                :src="product.image"
-                :alt="product.name"
-                class="w-full h-full object-center object-cover group-hover:opacity-75"
-            >
+            <router-link
+                :to="{ name: 'ProductDetails', params: {slug: product.slug}}"
+                class="text-reset d-block lh-1 text-center"
+            >   
+                <img
+                    :src="product.image"
+                    :alt="product.name"
+                    class="w-full h-full object-center object-cover group-hover:opacity-75"
+                >
+            </router-link>
         </div>
         <h3 class="mt-4 text-sm text-gray-700">
             {{ product.name }}
@@ -27,6 +32,8 @@
         >
             Add to Cart
         </button>
+        
+        <button />
     </div>
 </template>
 
@@ -40,7 +47,8 @@ export default {
                 id: null,
                 name: null, 
                 image: null,
-                price: null
+                price: null,
+                slug: null
             })
         }
     },
